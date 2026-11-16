@@ -1,0 +1,115 @@
+{
+  "schema_version": "study28_robustness_interpretability_v1",
+  "study_id": "sepsis3_28d_three_class_disposition",
+  "required_alpha3_external_complete": true,
+  "required_alpha4_complete": true,
+  "interpretability": {
+    "feature_set": "FS_NOAPS",
+    "sample_size": 4000,
+    "seed": 2026,
+    "beeswarm_class": "prolonged",
+    "max_display": 15
+  },
+  "pre_icu_los_sensitivity": {
+    "base_feature_set": "FS_NOAPS",
+    "excluded_features": [
+      "pre_icu_los_d"
+    ],
+    "use_locked_primary_hyperparameters": true,
+    "settings": [
+      "mimic_temporal",
+      "mimic->eicu_alt",
+      "mimic->eicu_primary",
+      "mimic->sicdb",
+      "mimic->nwicu"
+    ],
+    "paired_bootstrap_repeats": 1000,
+    "confidence_level": 0.95,
+    "seed": 2026
+  },
+  "feature_availability_sensitivity": {
+    "sites": [
+      "eicu_alt",
+      "eicu_primary",
+      "sicdb",
+      "nwicu"
+    ],
+    "base_feature_set": "FS_NOAPS",
+    "drop_external_all_nan_features": true,
+    "use_locked_primary_hyperparameters": true,
+    "paired_bootstrap_repeats": 1000,
+    "confidence_level": 0.95,
+    "seed": 2026,
+    "analysis_role": "exploratory"
+  },
+  "missingness_robustness": {
+    "sites": [
+      "mimic_temporal",
+      "eicu_alt",
+      "eicu_primary",
+      "sicdb",
+      "nwicu"
+    ],
+    "feature_set": "FS_NOAPS",
+    "bins": [
+      0.0,
+      0.1,
+      0.2,
+      0.4,
+      1.0000001
+    ],
+    "labels": [
+      "<=10%",
+      ">10-20%",
+      ">20-40%",
+      ">40%"
+    ],
+    "minimum_n": 100,
+    "require_all_three_classes": true,
+    "analysis_role": "robustness_subgroup"
+  },
+  "hfd28_secondary": {
+    "enabled": true,
+    "feature_set": "FS_NOAPS",
+    "use_locked_primary_hyperparameters": true,
+    "settings": [
+      "mimic_temporal",
+      "mimic->eicu_alt",
+      "mimic->eicu_primary",
+      "mimic->sicdb",
+      "mimic->nwicu"
+    ],
+    "bootstrap_repeats": 1000,
+    "confidence_level": 0.95,
+    "seed": 2026,
+    "analysis_role": "secondary_outcome",
+    "formula": "max(0, 28-hosp_los_d), then set death/prolonged to 0",
+    "professor_reference": {
+      "enabled": true,
+      "feature_set": "FS_FULL",
+      "settings": [
+        "mimic_temporal",
+        "mimic->eicu_primary",
+        "mimic->eicu_alt",
+        "eicu_alt->mimic"
+      ],
+      "bootstrap_repeats": 0,
+      "analysis_role": "professor_method_reproduction",
+      "note": "Exact method from professor main_28d_analysis.py: HFD28 formula + FS_FULL + locked LightGBM regressor."
+    }
+  },
+  "home_discharge_sensitivity": {
+    "enabled_if_columns_available": true,
+    "required_column": "discharge_location",
+    "on_missing": "BLOCK_AND_REPORT_NOT_EXECUTABLE",
+    "do_not_infer_from_other_columns": true
+  },
+  "methodological_notes": {
+    "no_retuning": "Alpha 5 never changes the frozen primary model, primary feature set, or locked hyperparameters. Newly trained models are sensitivity-only.",
+    "feature_availability": "Site-specific availability-matched models remove only primary features that are completely unavailable (all NaN) in that external cohort, then retrain on MIMIC with the same locked hyperparameters.",
+    "pre_icu_los": "Removing pre_icu_los_d addresses concern about a quasi-mechanical relationship between hospital-admission time zero and the 28-day disposition endpoint.",
+    "missingness": "Observed patient-level missingness burden is evaluated as a subgroup analysis using frozen primary predictions; no synthetic missingness is introduced.",
+    "hfd28": "HFD28 uses the exact professor formula recoverable from the provided analysis script and fields present in the frozen final datasets.",
+    "home_discharge": "Home-discharge sensitivity requires discharge_location. It must not be reconstructed or guessed when that field is absent from the final frozen datasets."
+  }
+}

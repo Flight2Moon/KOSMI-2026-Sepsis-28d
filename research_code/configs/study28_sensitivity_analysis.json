@@ -1,0 +1,67 @@
+{
+  "schema_version": "study28_sensitivity_analysis_v1",
+  "study_id": "sepsis3_28d_three_class_disposition",
+  "required_alpha3_external_complete": true,
+  "reverse_validation": {
+    "pairs": [
+      {"train": "eicu_alt", "evaluate": "mimic"},
+      {"train": "eicu_primary", "evaluate": "mimic"}
+    ],
+    "feature_set": "FS_NOAPS",
+    "use_locked_primary_hyperparameters": true,
+    "bootstrap_repeats": 1000,
+    "confidence_level": 0.95,
+    "minimum_successful_repeats": 900,
+    "seed": 2026
+  },
+  "local_recalibration": {
+    "sites": ["eicu_alt", "eicu_primary", "sicdb", "nwicu"],
+    "calibration_fraction": 0.2,
+    "seeds": 20,
+    "base_seed": 2026,
+    "clip_probability": 0.000001,
+    "logistic_C": 1000000.0,
+    "max_iter": 1000,
+    "minimum_successful_seeds": 18,
+    "representative_seed": 2026,
+    "note": "Professor-compatible per-class logistic recalibration on logit(p), fit only on the local 20% calibration subset and evaluated only on the held-out 80%."
+  },
+  "decision_curve_analysis": {
+    "classes": ["death", "prolonged"],
+    "threshold_min": 0.01,
+    "threshold_max": 0.60,
+    "threshold_step": 0.01,
+    "include_mimic_temporal_raw": true,
+    "include_external_raw": true,
+    "include_external_recalibrated_representative_split": true,
+    "include_reverse_validation": true
+  },
+  "subgroups": {
+    "reference_site": "eicu_alt",
+    "exploratory_sites": ["eicu_primary", "sicdb", "nwicu"],
+    "definitions": [
+      "age<65", "age65-79", "age>=80",
+      "male", "female",
+      "vent", "no_vent",
+      "elective", "non_elective"
+    ],
+    "minimum_n": 30,
+    "require_all_three_classes_for_macro_auroc": true
+  },
+  "hospital_heterogeneity": {
+    "site": "eicu_alt",
+    "hospital_column": "hospitalid",
+    "classes": ["death", "prolonged"],
+    "minimum_hospital_n": 50,
+    "minimum_events": 5,
+    "method": "DerSimonian-Laird",
+    "auc_standard_error": "Hanley-McNeil"
+  },
+  "methodological_notes": {
+    "separation": "Alpha 4 analyses are sensitivity/adaptation/clinical-utility analyses. They must never replace or overwrite Alpha 3 raw external validation results.",
+    "reverse_validation": "Reverse validation trains new sensitivity models and does not alter the frozen MIMIC primary model.",
+    "recalibration": "Local outcome labels are used only within the 20% calibration subset. Report raw held-out and recalibrated held-out results side-by-side.",
+    "subgroups": "eICU-alt reproduces the professor subgroup definitions; extension to the other external datasets is exploratory and must be labelled as such.",
+    "hospital_heterogeneity": "Hospital-level meta-analysis is restricted to eICU-alt because hospital identifiers are available there and the professor protocol specifies this analysis."
+  }
+}

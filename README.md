@@ -1,35 +1,12 @@
-# KOSMI 2026 · P1-07 — Sepsis-3 28-Day Hospital Outcomes
+# Prediction of 28-Day Hospital Outcomes in Sepsis-3 Cohorts
 
-**Prediction of 28-Day Hospital Outcomes in Patients Meeting Sepsis-3 Criteria: A Comparison of Multiclass and Two-Stage Models**
+Supplementary materials for KOSMI 2026 Fall Conference, poster **P1-07**.
 
-This repository is being prepared to share the reproducible **analysis code**, **aggregate evaluation results**, and **supplementary research website** for the 2026 Korean Society of Medical Informatics Fall Conference poster (P1-07).
+- **Research website:** [GitHub Pages](https://flight2moon.github.io/KOSMI-2026-Sepsis-28d/)
+- **Full comparison results:** [`docs/data/all_25_comparisons.csv`](docs/data/all_25_comparisons.csv)
+- **Supplementary PDF:** [`docs/assets/supplementary-results.pdf`](docs/assets/supplementary-results.pdf)
+- **Selected source code:** [`research_code/`](research_code/)
 
-## Study overview
+The public release contains selected study source code and **aggregate** evaluation results only. It does **not** redistribute patient-level data, raw EHR records, trained model binaries, or the original private research ZIP. Some source scripts depend on separately authorized ICU datasets. Public availability of this code is not a claim that raw-to-final cohort generation is fully reproduced.
 
-The study compares direct multiclass prediction with death-first two-stage prediction of three hospital outcomes in adults identified in Sepsis-3-related ICU cohorts. Evaluation includes MIMIC-IV development/temporal data and external ICU datasets.
-
-## Code and results
-
-- `src/`, `analysis/`, `scripts/`, `configs/`: reviewed source code and reproducibility instructions (to be added following source audit).
-- `results/`: aggregate performance tables including all 25 model-structure comparisons (to be added).
-- `docs/`: public poster companion page for GitHub Pages (to be added).
-
-**Release status:** Source files and supplementary materials are being reviewed before public upload. This repository currently does not include the raw reproducibility ZIP or patient-level datasets. No unverified data-generation pipeline is claimed to reproduce the restricted source cohorts.
-
-## Data access and privacy
-
-MIMIC-IV and eICU-CRD have access restrictions governed by PhysioNet. Their raw records or patient-level derivative datasets **must not be redistributed** in this public repository. Users needing those resources should obtain their own authorized access from their respective providers.
-
-Aggregate tables and code may be published after checking provenance, contributor permissions, external licenses, and embedded credentials.
-
-## Methods and interpretations
-
-Comparisons use macro AUROC and patient-level paired bootstrap confidence intervals. Nominal significance should not be interpreted as proof of equivalence, and results are not adjusted for multiplicity unless explicitly labeled.
-
-## Citation and reuse
-
-Please cite the conference poster and original ICU database publications when reusing these methods. A source-code license will be added after confirming authorship and contributor approval.
-
----
-
-**Conference:** KOSMI 2026 Fall Conference · **Poster:** P1-07
+No license is granted for third-party datasets. Please cite the original dataset sources and respect their data-use terms.
