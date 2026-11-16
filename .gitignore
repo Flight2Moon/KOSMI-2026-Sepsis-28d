@@ -1,12 +1,12 @@
 # Restricted EHR and patient-level data: never publish
-data/
-raw/
-raw_data/
-patient_data/
-restricted/
-private/
-secrets/
-clinical_data/
+/data/
+/raw/
+/raw_data/
+/patient_data/
+/restricted/
+/private/
+/secrets/
+/clinical_data/
 *.parquet
 *.feather
 *.arrow
