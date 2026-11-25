@@ -1,84 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="KOSMI 2026 poster P1-07: Prediction of 28-Day Hospital Outcomes in Patients Meeting Sepsis-3 Criteria: A Comparison of Multiclass and Two-Stage Models.">
-<meta name="theme-color" content="#ffffff">
-<title>Sepsis-3: 28-Day Hospital Outcomes | KOSMI 2026 P1-07</title>
-<style>
-:root{color-scheme:light;--ink:#1d2835;--muted:#52606d;--blue:#144d79;--border:#dfe4e9;--background:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--background);color:var(--ink);font:16px/1.72 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
-a{color:var(--blue);text-underline-offset:3px}a:focus-visible{outline:3px solid #144d79;outline-offset:4px}
-.container{max-width:860px;padding:0 26px;margin:0 auto}
-header{border-bottom:1px solid var(--border);padding:20px 0}
-header .container{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
-.journal{font-size:.82rem;font-weight:700;letter-spacing:.04em;color:#29374a;text-transform:uppercase}
-nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:.87rem}
-main{padding:46px 0 75px}
-.type{color:#596675;text-transform:uppercase;font-size:.78rem;font-weight:700;letter-spacing:.1em}
-h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,4vw,2.55rem);font-weight:700;line-height:1.25;letter-spacing:-.02em;margin:12px 0 24px}
-.authors{font-weight:600;margin:0 0 9px;line-height:1.65}
-.affiliations{color:var(--muted);font-size:.91rem;margin:4px 0}
-.meta{margin:25px 0 30px;padding:18px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);font-size:.89rem;color:var(--muted);display:flex;gap:12px 30px;flex-wrap:wrap}
-h2{font-family:Georgia,"Times New Roman",serif;font-size:1.45rem;line-height:1.3;border-bottom:1px solid var(--border);padding-bottom:11px;margin:40px 0 21px}
-h3{font-size:1.01rem;margin:24px 0 6px}
-p{margin:0 0 14px}
-.section{margin:0 0 17px}
-.section strong{color:#172b42}
-.keywords{font-size:.93rem;margin-top:24px}
-.related{margin:34px 0;padding:22px 24px;border:1px solid var(--border);border-radius:4px;background:#fafbfc}
-.related p{margin-bottom:10px}
-.links{display:flex;gap:8px 23px;flex-wrap:wrap}
-.note,footer{font-size:.86rem;color:var(--muted)}
-ol{padding-left:1.5rem}li{margin-bottom:9px}
-footer{border-top:1px solid var(--border);padding:24px 0 36px}
-@media(max-width:640px){.container{padding:0 20px}main{padding-top:30px}.meta{gap:8px;display:block}.meta span{display:block}.related{padding:18px}}
-</style>
-</head>
-<body>
-<header><div class="container"><div class="journal">KOSMI 2026 · Fall Conference</div><nav aria-label="Main navigation"><a href="#abstract">Abstract</a><a href="#references">References</a><a href="results.html">Supplementary results</a><a href="https://github.com/Flight2Moon/KOSMI-2026-Sepsis-28d">Source code</a></nav></div></header>
-<main class="container">
-<article>
-<div class="type">Conference poster · P1-07 · Research abstract</div>
-<h1>Prediction of 28-Day Hospital Outcomes in Patients Meeting Sepsis-3 Criteria: A Comparison of Multiclass and Two-Stage Models</h1>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102d40">
+<meta name="description" content="KOSMI 2026 poster P1-07. Explore 25 paired comparisons of direct multiclass and death-first two-stage models for 28-day hospital outcomes in Sepsis-3 cohorts.">
+<title>28-Day Hospital Outcomes in Sepsis-3 | KOSMI 2026 · P1-07</title>
+<link rel="stylesheet" href="assets/study.css"></head><body>
+<a class="skip" href="#main">Skip to content</a><header class="mast"><div class="wrap mast-inner"><a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>KOSMI <b>2026</b></a><nav aria-label="Main navigation"><a href="index.html" aria-current="page">Study</a><a href="results.html#comparisons">Comparisons</a><a href="index.html#methods">Methods</a><a href="index.html#downloads">Downloads</a></nav></div></header>
+<main id="main">
+<section class="hero"><div class="wrap hero-layout">
+<div class="hero-copy"><p class="kicker"><span class="conference-tag">P1-07</span> 2026 Fall Conference · Research poster</p>
+<h1>Prediction of 28-Day Hospital Outcomes in Patients Meeting Sepsis-3 Criteria: <span>A Comparison of Multiclass and Two-Stage Models</span></h1>
 <p class="authors">Jiheon Kim<sup>1</sup>, Jihye Shin<sup>2</sup>, Chaeyeong Yi<sup>2</sup>, Hyeon Ji Kim<sup>2</sup>, Bongjo Kim<sup>2</sup>, Minkook Son<sup>2</sup></p>
-<p class="affiliations"><sup>1</sup> Department of AI, Dong-A University, Busan, Republic of Korea</p>
-<p class="affiliations"><sup>2</sup> Department of Physiology, Dong-A University College of Medicine, Busan, Republic of Korea</p>
-<div class="meta"><span><b>Presentation:</b> KOSMI Fall Conference 2026</span><span><b>Poster:</b> P1-07</span><span><b>Document type:</b> Conference abstract and supplementary research materials</span></div>
-
-<section id="abstract" aria-labelledby="abstract-heading">
-<h2 id="abstract-heading">Abstract</h2>
-<p class="section"><strong>Background:</strong> Most sepsis prognostic models focus on mortality, although survivors may experience different hospital outcomes.</p>
-<p class="section"><strong>Objective:</strong> To compare direct multiclass classification with a death-first two-stage approach for predicting 28-day hospital outcomes across temporal and external ICU evaluations.</p>
-<p class="section"><strong>Methods:</strong> Adults meeting Sepsis-3 criteria in MIMIC-IV were used for model development (2008–2016; n = 17,009) and temporal evaluation (2017–2022; n = 5,732). Selected models were refit on the full MIMIC-IV cohort and externally evaluated in two eICU-CRD populations, SICdb, and NWICU. The three outcomes were early discharge alive, in-hospital death, and prolonged hospitalization at day 28. Logistic Regression, Decision Tree, Random Forest, XGBoost, and LightGBM were evaluated using both prediction structures. The primary metric was macro area under the receiver operating characteristic curve (AUROC), with between-structure differences estimated using 1,000 patient-level paired bootstrap resamples.</p>
-<p class="section"><strong>Results:</strong> The multiclass XGBoost model achieved a development macro AUROC of 0.832, 0.789 in temporal evaluation, and 0.739–0.782 in external evaluation. Across 25 comparisons (five algorithms × five evaluation cohorts), the two-stage approach had a nominally significant advantage in one comparison, while 23 comparisons had an absolute macro AUROC difference below 0.02. Differences were assessed using unadjusted 95% bootstrap confidence intervals; no multiple-comparison correction was applied.</p>
-<p class="section"><strong>Conclusions:</strong> The death-first two-stage approach did not consistently improve discrimination over direct multiclass classification. Direct multiclass classification may provide a simpler reference approach for predicting 28-day hospital outcomes. Further evaluation of calibration and transportability across ICU databases is warranted. These findings do not establish equivalence between the structures.</p>
-<p class="keywords"><strong>Keywords:</strong> Machine learning; Multiclass classification; External evaluation; Sepsis-3</p>
-</section>
-
-<section class="related" aria-labelledby="materials-heading">
-<h2 id="materials-heading" style="margin-top:0">Supplementary materials</h2>
-<p>Explore the full comparison results, confidence intervals, and selected research code accompanying poster P1-07.</p>
-<div class="links"><a href="results.html">Interactive results and study tables</a><a href="data/all_25_comparisons.csv" download>All 25 comparisons (CSV)</a><a href="assets/supplementary-results.pdf">Supplementary PDF</a><a href="https://github.com/Flight2Moon/KOSMI-2026-Sepsis-28d">Public source code repository</a></div>
-<p class="note" style="margin-top:15px;margin-bottom:0">The two eICU cohorts partly overlap. Patient-level clinical records are not redistributed here. Some source scripts depend on access-controlled databases.</p>
-</section>
-
+<div class="actions"><a class="btn primary" href="results.html#comparisons">Explore all 25 comparisons</a><a class="btn" href="assets/conference-poster.pdf">View poster PDF</a></div></div>
+<div class="snapshot-card"><p class="overline">Paired macro AUROC</p><h2>Five algorithms across five cohorts</h2>
+<table class="snapshot"><caption class="sr">Nominal results by algorithm and cohort. Select a comparison for its estimates.</caption><thead><tr><td></td><th scope="col">MIMIC-IV</th><th scope="col">eICU alt</th><th scope="col">eICU primary</th><th scope="col">SICdb</th><th scope="col">NWICU</th></tr></thead><tbody><tr><th scope="row">Logistic Regression</th><td><a href="results.html?model=Logistic+Regression&amp;cohort=MIMIC-IV+Temporal#comparisons" class="tile multi" aria-label="Logistic Regression, MIMIC-IV Temporal: Δ +0.0020, Multiclass" title="Logistic Regression, MIMIC-IV Temporal: Δ +0.0020, Multiclass">●</a></td><td><a href="results.html?model=Logistic+Regression&amp;cohort=eICU-CRD+alt#comparisons" class="tile neutral" aria-label="Logistic Regression, eICU-CRD alt: Δ −0.0007, CI includes zero" title="Logistic Regression, eICU-CRD alt: Δ −0.0007, CI includes zero">○</a></td><td><a href="results.html?model=Logistic+Regression&amp;cohort=eICU-CRD+primary#comparisons" class="tile neutral" aria-label="Logistic Regression, eICU-CRD primary: Δ −0.0009, CI includes zero" title="Logistic Regression, eICU-CRD primary: Δ −0.0009, CI includes zero">○</a></td><td><a href="results.html?model=Logistic+Regression&amp;cohort=SICdb#comparisons" class="tile multi" aria-label="Logistic Regression, SICdb: Δ +0.0023, Multiclass" title="Logistic Regression, SICdb: Δ +0.0023, Multiclass">●</a></td><td><a href="results.html?model=Logistic+Regression&amp;cohort=NWICU#comparisons" class="tile neutral" aria-label="Logistic Regression, NWICU: Δ +0.0006, CI includes zero" title="Logistic Regression, NWICU: Δ +0.0006, CI includes zero">○</a></td></tr><tr><th scope="row">Decision Tree</th><td><a href="results.html?model=Decision+Tree&amp;cohort=MIMIC-IV+Temporal#comparisons" class="tile two" aria-label="Decision Tree, MIMIC-IV Temporal: Δ −0.0154, Two-stage" title="Decision Tree, MIMIC-IV Temporal: Δ −0.0154, Two-stage">◆</a></td><td><a href="results.html?model=Decision+Tree&amp;cohort=eICU-CRD+alt#comparisons" class="tile neutral" aria-label="Decision Tree, eICU-CRD alt: Δ +0.0052, CI includes zero" title="Decision Tree, eICU-CRD alt: Δ +0.0052, CI includes zero">○</a></td><td><a href="results.html?model=Decision+Tree&amp;cohort=eICU-CRD+primary#comparisons" class="tile neutral" aria-label="Decision Tree, eICU-CRD primary: Δ −0.0231, CI includes zero" title="Decision Tree, eICU-CRD primary: Δ −0.0231, CI includes zero">○</a></td><td><a href="results.html?model=Decision+Tree&amp;cohort=SICdb#comparisons" class="tile multi" aria-label="Decision Tree, SICdb: Δ +0.0220, Multiclass" title="Decision Tree, SICdb: Δ +0.0220, Multiclass">●</a></td><td><a href="results.html?model=Decision+Tree&amp;cohort=NWICU#comparisons" class="tile neutral" aria-label="Decision Tree, NWICU: Δ +0.0078, CI includes zero" title="Decision Tree, NWICU: Δ +0.0078, CI includes zero">○</a></td></tr><tr><th scope="row">Random Forest</th><td><a href="results.html?model=Random+Forest&amp;cohort=MIMIC-IV+Temporal#comparisons" class="tile neutral" aria-label="Random Forest, MIMIC-IV Temporal: Δ −0.0013, CI includes zero" title="Random Forest, MIMIC-IV Temporal: Δ −0.0013, CI includes zero">○</a></td><td><a href="results.html?model=Random+Forest&amp;cohort=eICU-CRD+alt#comparisons" class="tile neutral" aria-label="Random Forest, eICU-CRD alt: Δ +0.0015, CI includes zero" title="Random Forest, eICU-CRD alt: Δ +0.0015, CI includes zero">○</a></td><td><a href="results.html?model=Random+Forest&amp;cohort=eICU-CRD+primary#comparisons" class="tile neutral" aria-label="Random Forest, eICU-CRD primary: Δ −0.0042, CI includes zero" title="Random Forest, eICU-CRD primary: Δ −0.0042, CI includes zero">○</a></td><td><a href="results.html?model=Random+Forest&amp;cohort=SICdb#comparisons" class="tile multi" aria-label="Random Forest, SICdb: Δ +0.0169, Multiclass" title="Random Forest, SICdb: Δ +0.0169, Multiclass">●</a></td><td><a href="results.html?model=Random+Forest&amp;cohort=NWICU#comparisons" class="tile multi" aria-label="Random Forest, NWICU: Δ +0.0123, Multiclass" title="Random Forest, NWICU: Δ +0.0123, Multiclass">●</a></td></tr><tr><th scope="row">XGBoost</th><td><a href="results.html?model=XGBoost&amp;cohort=MIMIC-IV+Temporal#comparisons" class="tile neutral" aria-label="XGBoost, MIMIC-IV Temporal: Δ +0.0004, CI includes zero" title="XGBoost, MIMIC-IV Temporal: Δ +0.0004, CI includes zero">○</a></td><td><a href="results.html?model=XGBoost&amp;cohort=eICU-CRD+alt#comparisons" class="tile multi" aria-label="XGBoost, eICU-CRD alt: Δ +0.0086, Multiclass" title="XGBoost, eICU-CRD alt: Δ +0.0086, Multiclass">●</a></td><td><a href="results.html?model=XGBoost&amp;cohort=eICU-CRD+primary#comparisons" class="tile neutral" aria-label="XGBoost, eICU-CRD primary: Δ +0.0062, CI includes zero" title="XGBoost, eICU-CRD primary: Δ +0.0062, CI includes zero">○</a></td><td><a href="results.html?model=XGBoost&amp;cohort=SICdb#comparisons" class="tile multi" aria-label="XGBoost, SICdb: Δ +0.0067, Multiclass" title="XGBoost, SICdb: Δ +0.0067, Multiclass">●</a></td><td><a href="results.html?model=XGBoost&amp;cohort=NWICU#comparisons" class="tile multi" aria-label="XGBoost, NWICU: Δ +0.0104, Multiclass" title="XGBoost, NWICU: Δ +0.0104, Multiclass">●</a></td></tr><tr><th scope="row">LightGBM</th><td><a href="results.html?model=LightGBM&amp;cohort=MIMIC-IV+Temporal#comparisons" class="tile neutral" aria-label="LightGBM, MIMIC-IV Temporal: Δ +0.0029, CI includes zero" title="LightGBM, MIMIC-IV Temporal: Δ +0.0029, CI includes zero">○</a></td><td><a href="results.html?model=LightGBM&amp;cohort=eICU-CRD+alt#comparisons" class="tile multi" aria-label="LightGBM, eICU-CRD alt: Δ +0.0047, Multiclass" title="LightGBM, eICU-CRD alt: Δ +0.0047, Multiclass">●</a></td><td><a href="results.html?model=LightGBM&amp;cohort=eICU-CRD+primary#comparisons" class="tile neutral" aria-label="LightGBM, eICU-CRD primary: Δ +0.0018, CI includes zero" title="LightGBM, eICU-CRD primary: Δ +0.0018, CI includes zero">○</a></td><td><a href="results.html?model=LightGBM&amp;cohort=SICdb#comparisons" class="tile neutral" aria-label="LightGBM, SICdb: Δ +0.0029, CI includes zero" title="LightGBM, SICdb: Δ +0.0029, CI includes zero">○</a></td><td><a href="results.html?model=LightGBM&amp;cohort=NWICU#comparisons" class="tile multi" aria-label="LightGBM, NWICU: Δ +0.0083, Multiclass" title="LightGBM, NWICU: Δ +0.0083, Multiclass">●</a></td></tr></tbody></table><div class="snap-legend"><span class="key multi">● Multiclass higher</span><span class="key two">◆ Two-stage higher</span><span class="key neutral">○ CI includes zero</span></div>
+<p class="card-note">Each cell opens one comparison. Symbols reflect unadjusted 95% confidence intervals.</p></div></div></section>
+<div class="wrap">
+<section class="findings"><div><p class="kicker">Main finding</p><h2>The death-first approach showed no consistent gain in discrimination.</h2></div>
+<div class="number-links">
+<a href="results.html?view=small#comparisons"><strong>23<span> / 25</span></strong><span>Absolute differences below 0.02</span></a>
+<a href="results.html?view=two#comparisons"><strong>1<span> / 25</span></strong><span>Nominal advantage for the two-stage model</span></a>
+</div></section>
+<div class="article-layout"><div class="article-body"><section id="abstract" aria-labelledby="abstract-heading"><h2 id="abstract-heading">Study abstract</h2>
+<p>Most sepsis prognostic models focus on mortality, although survivors may have different hospital outcomes. We compared a multiclass model with a death-first two-stage model for predicting 28-day hospital outcomes.</p>
+<p>Adults meeting Sepsis-3 criteria in MIMIC-IV were used for model development (2008–2016, n=17,009) and temporal evaluation (2017–2022, n=5,732). The selected models were subsequently refit on the full MIMIC-IV dataset and externally evaluated in two eICU-CRD populations, SICdb, and NWICU. Outcomes were early discharge, in-hospital death, and prolonged hospitalization at day 28. Logistic Regression, Decision Tree, Random Forest, XGBoost, and LightGBM were evaluated under both structures. Macro AUROC was the primary metric; differences were estimated using 1,000 paired bootstrap resamples.</p>
+<p>XGBoost achieved the highest development macro AUROC (0.832), with 0.789 in temporal evaluation and 0.739–0.782 in external evaluation. Across 25 comparisons, the two-stage model significantly outperformed the multiclass model only once; absolute differences were &lt;0.02 in 23 comparisons.</p>
+<p>The death-first two-stage model did not provide a consistent discrimination benefit over direct multiclass classification. These findings support the multiclass model as a parsimonious baseline, while further evaluation of calibration and transportability across ICU databases is warranted.</p>
+<p class="keywords"><strong>Keywords</strong> &nbsp; Machine learning · Multiclass classification · External evaluation</p></section>
+<section id="methods"><div class="section-head"><p class="kicker">Study design</p><h2>When were predictions made?</h2></div>
+<ol class="timeline">
+<li><strong>Hospital admission</strong><span>The 28-day outcome window begins.</span></li>
+<li><strong>24 hours after ICU admission</strong><span>The models use information available by this landmark. Patients who died or were discharged before the landmark were excluded.</span></li>
+<li><strong>Day 28 after hospital admission</strong><span>Each patient has one outcome: discharge alive before day 28, in-hospital death by day 28, or continued hospitalization at day 28. A patient still in hospital on day 28 who dies later is in the continued-hospitalization group.</span></li>
+</ol>
+<h3>How the two structures predict</h3><p>Direct multiclass classification estimates the three outcome probabilities together. The two-stage model estimates death first, then the probability of continued hospitalization conditional on survival.</p>
+<details class="fold"><summary>Which 56 predictors were used?</summary>
+<p>The first-day feature set excluded APS III. Each listed minimum and maximum counts as a separate input.</p><dl class="feature-list">
+<dt>Demographics and admission · 11</dt><dd>Age, male sex, five recorded race indicators (White, Black, Hispanic, Asian, other), three admission-type indicators (emergency, elective, other), and length of stay before ICU admission.</dd>
+<dt>Clinical status and support · 9</dt><dd>Charlson Comorbidity Index, Glasgow Coma Scale, body mass index, urine output, continuous renal replacement therapy, vasopressin, epinephrine, norepinephrine, and invasive mechanical ventilation.</dd>
+<dt>Vital signs · 14</dt><dd>Minimum and maximum heart rate, systolic pressure, diastolic pressure, mean blood pressure, respiratory rate, temperature, and oxygen saturation.</dd>
+<dt>Laboratory values · 22</dt><dd>Minimum and maximum blood urea nitrogen, creatinine, white blood cell count, hemoglobin, platelet count, chloride, sodium, bicarbonate, potassium, glucose, and calcium.</dd></dl></details>
+<h3>Development and evaluation</h3><p>MIMIC-IV development used 17,009 patients from 2008–2016. Models selected in development were evaluated on 5,732 later MIMIC-IV patients and refit on the full MIMIC-IV cohort for external evaluation. The four external cohorts comprise two eICU-CRD definitions, SICdb, and NWICU. The two eICU cohorts share 1,369 patients.</p><a href="results.html#tables">View cohort sizes and outcome frequencies</a></section>
+<section id="downloads"><div class="section-head"><p class="kicker">Supplementary materials</p><h2 id="materials-heading">Poster, data and code</h2></div><div class="files"><a class="file" href="assets/conference-poster.pdf"><span class="filetype">PDF</span><span><strong>Conference poster</strong><small>Original poster with Tables 1–2 and Figure 1</small></span></a><a class="file" href="assets/supplementary-results.pdf"><span class="filetype">PDF</span><span><strong>Supplementary report</strong><small>Printable results for all 25 comparisons</small></span></a><a class="file" href="data/all_25_comparisons.csv"><span class="filetype">CSV</span><span><strong>Comparison data</strong><small>Estimates and bootstrap confidence limits</small></span></a><a class="file" href="https://github.com/Flight2Moon/KOSMI-2026-Sepsis-28d"><span class="filetype">GIT</span><span><strong>Research code</strong><small>Public analysis and evaluation scripts</small></span></a></div></section>
 <section aria-labelledby="funding-heading">
 <h2 id="funding-heading">Funding</h2>
 <p>This work was supported by National Research Foundation of Korea (NRF) grants funded by the Ministry of Science and ICT (MSIT): RS-2026-25511656 and RS-2024-00342613.</p>
-</section>
-<section id="references" aria-labelledby="refs-heading">
+</section><section id="references" aria-labelledby="refs-heading">
 <h2 id="refs-heading">Selected references</h2>
 <ol>
 <li>Singer M, Deutschman CS, Seymour CW, et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). <em>JAMA</em>. 2016;315(8):801–810.</li>
 <li>Johnson AEW, Bulgarelli L, Shen L, et al. MIMIC-IV, a freely accessible electronic health record dataset. <em>Scientific Data</em>. 2023;10:1.</li>
 <li>Pollard TJ, Johnson AEW, Raffa JD, et al. The eICU Collaborative Research Database, a freely available multi-center database for critical care research. <em>Scientific Data</em>. 2018;5:180178.</li>
 <li>Wei J, Gay J, Brent A, et al. Concurrent prediction of in-hospital mortality and length of stay using single-task, multiclass and multitask machine learning. <em>BMJ Digital Health &amp; AI</em>. 2025;1:e000071.</li>
+<li>Rodemund N, et al. SICdb. <em>Intensive Care Medicine</em>. 2023;49:700–702.</li>
+<li>Moukheiber D, et al. NWICU database. <em>PhysioNet</em>. 2024. doi:10.13026/s84w-1829.</li>
 </ol>
-</section>
-</article>
-</main>
-<footer><div class="container">KOSMI 2026 Fall Conference · Poster P1-07. This page provides conference poster materials; it is not a peer-reviewed journal article.</div></footer>
-</body>
-</html>
+</section></div>
+<aside class="study-aside"><p class="kicker">In this study</p><nav aria-label="Study sections"><a href="#abstract">Study abstract</a><a href="#methods">Design and predictors</a><a href="results.html#tables">Poster tables</a><a href="#downloads">Poster, data and code</a><a href="#references">References</a></nav><h3>Affiliations</h3><p class="affiliations"><sup>1</sup> Department of AI, Dong-A University, Busan, Republic of Korea</p>
+<p class="affiliations"><sup>2</sup> Department of Physiology, Dong-A University College of Medicine, Busan, Republic of Korea</p></aside></div>
+</div></main><footer><div class="wrap footer-inner"><span>KOSMI 2026 Fall Conference · Poster P1-07</span><a href="https://github.com/Flight2Moon/KOSMI-2026-Sepsis-28d">Research code on GitHub</a></div></footer></body></html>
