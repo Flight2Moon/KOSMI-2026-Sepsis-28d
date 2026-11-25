@@ -6,7 +6,7 @@ const modelFilter = get('model-filter');
 const cohortFilter = get('cohort-filter');
 const models = Array.from(modelFilter.options).slice(1).map(option => option.value);
 const cohorts = Array.from(cohortFilter.options).slice(1).map(option => option.value);
-const cohortHeadings = ['MIMIC-IV', 'eICU alt', 'eICU primary', 'SICdb', 'NWICU'];
+const cohortHeadings = ['MIMIC-IV temporal', 'eICU alt', 'eICU primary', 'SICdb', 'NWICU'];
 const records = Array.from(get('all-data').tBodies[0].rows, row => {
   const [cohort, model, n, flat, two, delta, interval] = row.cells;
   const low = Number(interval.dataset.low);
